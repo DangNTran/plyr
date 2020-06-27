@@ -44,6 +44,14 @@ const media = {
       });
 
       this.elements.wrapper.appendChild(this.elements.poster);
+      this.elements.topPanel = createElement('div', {
+        class: this.config.classNames.topPanel,
+      });
+      this.elements.bottomPanel = createElement('div', {
+        class: this.config.classNames.bottomPanel,
+      })
+      this.elements.wrapper.appendChild(this.elements.topPanel);
+      this.elements.wrapper.appendChild(this.elements.bottomPanel);
     }
 
     if (this.isHTML5) {

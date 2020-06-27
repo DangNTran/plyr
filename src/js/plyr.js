@@ -365,6 +365,7 @@ class Plyr {
     }
 
     // Return the promise (for HTML5)
+    ui.showTopPanel.call(this);
     return this.media.play();
   }
 
