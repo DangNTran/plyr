@@ -6,6 +6,7 @@ import captions from './captions';
 import controls from './controls';
 import support from './support';
 import browser from './utils/browser';
+import { getElement, toggleClass, insertElement, replaceElement, emptyElement } from './utils/elements';
 import { getElement, toggleClass } from './utils/elements';
 import { ready, triggerEvent } from './utils/events';
 import i18n from './utils/i18n';
@@ -124,6 +125,16 @@ const ui = {
     }
   },
 
+  showTopPanel() {
+    toggleClass(this.elements.container, this.config.classNames.panelDisabled, false);
+    (new Promise((resolve) => {
+      setTimeout(() => resolve(), 5000)
+    }))
+    .then(() => {
+      toggleClass(this.elements.container, this.config.classNames.panelDisabled, true);
+    });
+  },
+
   // Setup aria attribute for play and iframe title
   setTitle() {
     // Find the current text
@@ -153,6 +164,11 @@ const ui = {
       const format = i18n.get('frameTitle', this.config);
 
       iframe.setAttribute('title', format.replace('{title}', title));
+    }
+    if (this.elements.topPanel) {
+      const title = !is.empty(this.config.title) ? this.config.title : 'livestreaming video';
+      emptyElement(this.elements.topPanel);
+      insertElement('span', this.elements.topPanel, '', title);
     }
   },
 

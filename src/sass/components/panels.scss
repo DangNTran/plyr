@@ -1,0 +1,70 @@
+.plyr__top-panel {
+  background-color: black;
+  color: #fff;
+  left: 0;
+  @media (max-width: $plyr-bp-sm) {
+    font-size: medium;
+    min-height: 50px;
+  }
+  @media (min-width: $plyr-bp-lg) {
+    font-size: larger;
+    min-height: 65px;
+  }
+  @media (min-width: $plyr-bp-sm) and (max-width: $plyr-bp-lg){
+    font-size: large;
+    min-height: 60px
+  }
+
+  opacity: 1;
+  overflow-x: hidden;
+  padding: 5px;
+  position: absolute;
+  text-align: left;
+  top: 0;
+  transition: opacity 0.3s ease;
+  width: 100%;
+}
+
+.plyr__top-panel span {
+  white-space: nowrap;
+}
+
+.panel-disabled .plyr__top-panel {
+  opacity: 0;
+}
+.plyr--paused.panel-disabled .plyr__top-panel,
+.plyr--stopped.panel-disabled .plyr__top-panel {
+  opacity: 1;
+}
+
+.plyr__bottom-panel {
+  background-color: black;
+  bottom: 0;
+  color: #fff;
+  left: 0;
+  @media (max-width: $plyr-bp-sm) {
+    min-height: 50px
+  }
+  @media (min-width: $plyr-bp-lg) {
+    min-height: 60px
+  }
+  @media (min-width: $plyr-bp-sm) and (max-width: $plyr-bp-lg){
+    min-height: 55px
+  }
+  opacity: 1;
+  overflow-x: hidden;
+  padding: 5px;
+  position: absolute;
+  text-align: left;
+  transition: opacity 0.3s ease;
+  width: 100%;
+}
+
+.panel-disabled .plyr__bottom-panel {
+  opacity: 0;
+}
+.plyr--paused.panel-disabled .plyr__bottom-panel,
+.plyr--stopped.panel-disabled .plyr__bottom-panel {
+  opacity: 1;
+}
+
